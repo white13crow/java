@@ -1,0 +1,26 @@
+package ua.app;
+
+import ua.model.*;
+import ua.util.*;
+
+import java.time.LocalDate;
+
+public class TestRunnerLR6 {
+
+    public static void main(String[] args) {
+
+        PatientRepository repo = new PatientRepository();
+
+        repo.add(new Patient("A", "One", "1", LocalDate.of(2000, 1, 1)));
+        repo.add(new Patient("B", "Two", "2", LocalDate.of(2001, 1, 1)));
+        repo.add(new Patient("C", "One", "3", LocalDate.of(2002, 1, 1)));
+
+        assert repo.findByLastName("One").size() == 2;
+        assert repo.findByBirthDateRange(
+                LocalDate.of(2000,1,1),
+                LocalDate.of(2001,12,31)
+        ).size() == 2;
+
+        System.out.println("All LR6 tests passed!");
+    }
+}

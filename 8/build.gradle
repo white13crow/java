@@ -1,0 +1,25 @@
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'ua'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.slf4j:slf4j-simple:2.0.9'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+}
+
+application {
+    mainClass = 'ua.app.MainLR8'
+}
+
+test {
+    useJUnitPlatform()
+}
